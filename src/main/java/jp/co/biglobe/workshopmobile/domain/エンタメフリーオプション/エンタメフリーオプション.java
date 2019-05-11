@@ -15,8 +15,4 @@ public enum エンタメフリーオプション {
     public MonthlyFee 金額取得() {
         return value;
     }
-
-    public static エンタメフリーオプション from(boolean value) {
-        return value ? 契約あり : 契約なし;
-    }
 }
