@@ -6,13 +6,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Setter
-@Getter
 class Request {
     // プラン
     private PlanForm plan;
 
+    Plan getPlan() {
+        return plan.getPlan();
+    }
+
     // 動画・音楽楽しみ放題　エンタメフリー・オプション
     private boolean entame_free;
+
+    エンタメフリーオプション getエンタメフリーオプション() {
+        return entame_free ? エンタメフリーオプション.契約あり : エンタメフリーオプション.契約なし;
+    }
 
     enum PlanForm {
         g1 {

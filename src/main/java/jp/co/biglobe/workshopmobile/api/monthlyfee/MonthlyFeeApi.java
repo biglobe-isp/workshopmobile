@@ -1,5 +1,6 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
+import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import jp.co.biglobe.workshopmobile.domain.エンタメフリーオプション.エンタメフリーオプション;
 import jp.co.biglobe.workshopmobile.domain.契約.契約;
 import lombok.AllArgsConstructor;
@@ -18,10 +19,10 @@ public class MonthlyFeeApi {
     public Map invoke(
             Request request
     ) {
-        Request.PlanForm plan = request.getPlan();
-        boolean entame_free = request.isEntame_free();
+        Plan plan = request.getPlan();
+        エンタメフリーオプション option = request.getエンタメフリーオプション();
 
-        契約 contract = 契約.of(plan.getPlan(), エンタメフリーオプション.from(entame_free));
+        契約 contract = 契約.of(plan, option);
 
         Map<String, Object> res = new HashMap<>();
         res.put("monthly_fee", contract.合算料金を取得する().getValue());
