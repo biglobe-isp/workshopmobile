@@ -20,8 +20,14 @@ public class MonthlyFeeApi {
         Request.PlanForm plan = request.getPlan();
         boolean entame_free = request.isEntame_free();
 
+        if (plan == Request.PlanForm.g1 && entame_free) {
+            throw new RuntimeException();
+        }
+
         Map<String, Object> res = new HashMap<>();
-        res.put("monthly_fee", plan.getPlan().getMonthlyFee().getValue() + new エンタメフリーオプション(entame_free).金額取得().getValue());
+        res.put("monthly_fee",
+                plan.getPlan().getMonthlyFee().getValue() +
+                        new エンタメフリーオプション(entame_free).金額取得().getValue());
         return res;
     }
 
