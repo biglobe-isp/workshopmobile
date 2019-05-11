@@ -13,7 +13,7 @@ public class 契約 {
     final エンタメフリーオプション エンタメフリーオプション;
 
     public static 契約 of(Plan プラン, エンタメフリーオプション エンタメフリーオプション) {
-        if (エンタメフリーオプション.is契約有無() && プラン == Plan._1ギガ) {
+        if (エンタメフリーオプション == エンタメフリーオプション.契約あり && プラン == Plan._1ギガ) {
             throw new RuntimeException();
         }
         return new 契約(プラン, エンタメフリーオプション);

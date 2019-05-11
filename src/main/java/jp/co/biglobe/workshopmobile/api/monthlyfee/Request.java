@@ -1,6 +1,7 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
 import jp.co.biglobe.workshopmobile.domain.plan.Plan;
+import jp.co.biglobe.workshopmobile.domain.エンタメフリーオプション.エンタメフリーオプション;
 import lombok.Getter;
 import lombok.Setter;
 

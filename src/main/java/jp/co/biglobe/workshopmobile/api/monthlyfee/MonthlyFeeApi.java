@@ -21,7 +21,7 @@ public class MonthlyFeeApi {
         Request.PlanForm plan = request.getPlan();
         boolean entame_free = request.isEntame_free();
 
-        契約 contract = 契約.of(plan.getPlan(), new エンタメフリーオプション(entame_free));
+        契約 contract = 契約.of(plan.getPlan(), エンタメフリーオプション.from(entame_free));
 
         Map<String, Object> res = new HashMap<>();
         res.put("monthly_fee", contract.合算料金を取得する().getValue());
