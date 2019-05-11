@@ -1,5 +1,6 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
+import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,8 +14,26 @@ class Request {
     private boolean entame_free;
 
     enum PlanForm {
-        g1, // 1ギガ(スタート)
-        g3, // 3ギガ
-        g30 // 30ギガ
+        g1 {
+            @Override
+            Plan getPlan() {
+                return Plan._1ギガ;
+            }
+        }, // 1ギガ(スタート)
+        g3 {
+            @Override
+            Plan getPlan() {
+                return Plan._3ギガ;
+            }
+        }, // 3ギガ
+        g30 {
+            @Override
+            Plan getPlan() {
+                return Plan._30ギガ;
+            }
+        } // 30ギガ
+
+;
+        abstract Plan getPlan();
     }
 }
