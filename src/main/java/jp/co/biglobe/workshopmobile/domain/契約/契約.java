@@ -5,6 +5,8 @@ import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import jp.co.biglobe.workshopmobile.domain.エンタメフリーオプション.エンタメフリーオプション;
 import lombok.AllArgsConstructor;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 public class 契約 {
 
@@ -12,11 +14,11 @@ public class 契約 {
 
     final エンタメフリーオプション エンタメフリーオプション;
 
-    public static 契約 of(Plan プラン, エンタメフリーオプション エンタメフリーオプション) {
+    public static Optional<契約> of(Plan プラン, エンタメフリーオプション エンタメフリーオプション) {
         if (エンタメフリーオプション == エンタメフリーオプション.契約あり && プラン == Plan._1ギガ) {
-            throw new RuntimeException();
+            return Optional.empty();
         }
-        return new 契約(プラン, エンタメフリーオプション);
+        return Optional.of(new 契約(プラン, エンタメフリーオプション));
     }
 
     public MonthlyFee 合算料金を取得する() {

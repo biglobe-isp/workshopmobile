@@ -22,7 +22,7 @@ public class MonthlyFeeApi {
         Plan plan = request.getPlan();
         エンタメフリーオプション option = request.getエンタメフリーオプション();
 
-        契約 contract = 契約.of(plan, option);
+        契約 contract = 契約.of(plan, option).orElseThrow(RuntimeException::new);
 
         Map<String, Object> res = new HashMap<>();
         res.put("monthly_fee", contract.合算料金を取得する().getValue());
