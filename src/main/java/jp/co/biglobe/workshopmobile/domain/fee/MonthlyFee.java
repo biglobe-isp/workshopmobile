@@ -10,4 +10,8 @@ import lombok.Getter;
 public class MonthlyFee {
     @Getter
     private final int value;
+
+    public MonthlyFee 足す(MonthlyFee other) {
+        return new MonthlyFee(value + other.value);
+    }
 }
