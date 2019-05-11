@@ -20,6 +20,6 @@ public class 契約 {
     }
 
     public MonthlyFee 合算料金を取得する() {
-        return プラン.getMonthlyFee().足す(エンタメフリーオプション.金額取得());
+        return プラン.金額取得().足す(エンタメフリーオプション.金額取得());
     }
 }

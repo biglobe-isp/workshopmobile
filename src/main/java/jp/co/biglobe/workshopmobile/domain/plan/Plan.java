@@ -13,6 +13,9 @@ public enum Plan {
     _3ギガ(new MonthlyFee(2000)),
     _30ギガ(new MonthlyFee(6000));
 
+    public MonthlyFee 金額取得() {
+        return monthlyFee;
+    }
 
     @Getter
     private final MonthlyFee monthlyFee;
