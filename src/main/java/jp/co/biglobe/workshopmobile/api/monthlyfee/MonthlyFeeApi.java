@@ -1,6 +1,6 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
-import jp.co.biglobe.workshopmobile.domain.plan.Plan;
+import jp.co.biglobe.workshopmobile.domain.kounyu.Mitsumori;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,8 +17,10 @@ public class MonthlyFeeApi {
     public Map invoke(
             Request request
     ) {
+        Mitsumori mitsumori = new Mitsumori(request.convertPlan(),request.convertEntameFree());
+        
         Map<String, Object> res = new HashMap<>();
-        res.put("monthly_fee", Plan._1ギガ.getMonthlyFee().getValue() /* TODO 月額料金を返す */);
+        res.put("monthly_fee",  mitsumori.calcurate().getValue());
         return res;
     }
 
