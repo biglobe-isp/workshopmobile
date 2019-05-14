@@ -1,5 +1,7 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
+import jp.co.biglobe.workshopmobile.domain.plan.Plan;
+import jp.co.biglobe.workshopmobile.domain.エンタメフリーオプション;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,4 +19,19 @@ class Request {
         g3, // 3ギガ
         g30 // 30ギガ
     }
+
+    public Plan convert() {
+        if (plan.name().equals("g1")) {
+            return Plan._1ギガ;
+        } else if (plan.name().equals("g3")) {
+            return Plan._3ギガ;
+        } else {
+            return Plan._30ギガ;
+        }
+    }
+
+    public エンタメフリーオプション convert_option() {
+        return entame_free ? エンタメフリーオプション.有 : エンタメフリーオプション.無;
+    }
+
 }
