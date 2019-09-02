@@ -8,8 +8,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import static jp.co.biglobe.workshopmobile.api.monthlyfee.MonthlyFeeApiSpec.ありなし.あり
-import static jp.co.biglobe.workshopmobile.api.monthlyfee.MonthlyFeeApiSpec.ありなし.なし
+import static jp.co.biglobe.workshopmobile.api.monthlyfee.GetsugakuRyokinApiSpec.ありなし.あり
+import static jp.co.biglobe.workshopmobile.api.monthlyfee.GetsugakuRyokinApiSpec.ありなし.なし
 import static jp.co.biglobe.workshopmobile.api.monthlyfee.Request.PlanForm.g1
 import static jp.co.biglobe.workshopmobile.api.monthlyfee.Request.PlanForm.g3
 import static jp.co.biglobe.workshopmobile.api.monthlyfee.Request.PlanForm.g30
@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @Unroll
 @WebMvcTest
-class MonthlyFeeApiSpec extends Specification {
+class GetsugakuRyokinApiSpec extends Specification {
     @Autowired
     MockMvc mvc
 
