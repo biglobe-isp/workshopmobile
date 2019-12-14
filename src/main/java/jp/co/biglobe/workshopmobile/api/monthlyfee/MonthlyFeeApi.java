@@ -18,10 +18,7 @@ public class MonthlyFeeApi {
             Request request
     ) {
         Map<String, Object> res = new HashMap<>();
-        res.put("monthly_fee",
-                new 契約(request.convertToPlan(),
-                        request.convertToEntameFree()).月額料金を計算する().getValue()
-        );
+        res.put("monthly_fee", request.convertTo契約().月額料金を計算する().getValue());
 
         return res;
     }

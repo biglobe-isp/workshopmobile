@@ -1,5 +1,6 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
+import jp.co.biglobe.workshopmobile.domain.contract.契約;
 import jp.co.biglobe.workshopmobile.domain.option.EntameFree;
 import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import lombok.Getter;
@@ -32,5 +33,9 @@ class Request {
 
     public EntameFree convertToEntameFree() {
         return entame_free ? EntameFree.あり : EntameFree.なし;
+    }
+
+    public 契約 convertTo契約() {
+        return new 契約(convertToPlan(), convertToEntameFree());
     }
 }
