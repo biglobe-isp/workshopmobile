@@ -1,5 +1,6 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
+import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,5 +17,15 @@ class Request {
         g1, // 1ギガ(スタート)
         g3, // 3ギガ
         g30 // 30ギガ
+    }
+
+    public Plan convertToPlan() {
+        if (plan == Request.PlanForm.g1) {
+            return Plan._1ギガ;
+        } else if (plan == Request.PlanForm.g3) {
+            return Plan._3ギガ;
+        } else {
+            return Plan._30ギガ;
+        }
     }
 }

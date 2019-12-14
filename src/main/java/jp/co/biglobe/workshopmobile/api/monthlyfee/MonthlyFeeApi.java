@@ -18,13 +18,8 @@ public class MonthlyFeeApi {
             Request request
     ) {
         Map<String, Object> res = new HashMap<>();
-        if (request.getPlan() == Request.PlanForm.g1) {
-            res.put("monthly_fee", Plan._1ギガ.getMonthlyFee().getValue());
-        } else if (request.getPlan() == Request.PlanForm.g3) {
-            res.put("monthly_fee", Plan._3ギガ.getMonthlyFee().getValue());
-        } else {
-            res.put("monthly_fee", Plan._30ギガ.getMonthlyFee().getValue());
-        }
+        res.put("monthly_fee", request.convertToPlan().getMonthlyFee().getValue());
+
         return res;
     }
 
