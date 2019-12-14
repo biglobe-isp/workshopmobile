@@ -1,6 +1,5 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
-import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,8 +18,8 @@ public class MonthlyFeeApi {
     ) {
         Map<String, Object> res = new HashMap<>();
         res.put("monthly_fee",
-                request.convertToPlan().getMonthlyFee().getValue()
-                        + request.convertToEntameFree().getMonthlyFee().getValue());
+                request.convertToPlan().get料金().getValue()
+                        + request.convertToEntameFree().get料金().getValue());
 
         return res;
     }
