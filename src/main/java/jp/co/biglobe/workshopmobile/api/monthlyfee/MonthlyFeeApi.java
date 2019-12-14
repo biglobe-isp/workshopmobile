@@ -18,11 +18,12 @@ public class MonthlyFeeApi {
             Request request
     ) {
         Map<String, Object> res = new HashMap<>();
-        res.put("monthly_fee", request.convertToPlan().getMonthlyFee().getValue());
+        res.put("monthly_fee",
+                request.convertToPlan().getMonthlyFee().getValue()
+                        + request.convertToEntameFree().getMonthlyFee().getValue());
 
         return res;
     }
-
 
 
 }
