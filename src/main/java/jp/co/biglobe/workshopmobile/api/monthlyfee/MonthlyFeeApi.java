@@ -18,7 +18,13 @@ public class MonthlyFeeApi {
             Request request
     ) {
         Map<String, Object> res = new HashMap<>();
-        res.put("monthly_fee", Plan._1ギガ.getMonthlyFee().getValue() /* TODO 月額料金を返す */);
+        if (request.getPlan() == Request.PlanForm.g1) {
+            res.put("monthly_fee", Plan._1ギガ.getMonthlyFee().getValue());
+        } else if (request.getPlan() == Request.PlanForm.g3) {
+            res.put("monthly_fee", Plan._3ギガ.getMonthlyFee().getValue());
+        } else {
+            res.put("monthly_fee", Plan._30ギガ.getMonthlyFee().getValue());
+        }
         return res;
     }
 
