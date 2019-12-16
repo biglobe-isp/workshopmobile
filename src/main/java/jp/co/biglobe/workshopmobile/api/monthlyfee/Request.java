@@ -1,11 +1,26 @@
 package jp.co.biglobe.workshopmobile.api.monthlyfee;
 
-import lombok.Getter;
-import lombok.Setter;
+import jp.co.biglobe.workshopmobile.domain.engagement.契約;
+import jp.co.biglobe.workshopmobile.domain.option.オプション;
+import jp.co.biglobe.workshopmobile.domain.plan.Plan;
 
-@Setter
-@Getter
 class Request {
+    public PlanForm getPlan() {
+        return plan;
+    }
+
+    public boolean isEntame_free() {
+        return entame_free;
+    }
+
+    public void setPlan(PlanForm plan) {
+        this.plan = plan;
+    }
+
+    public void setEntame_free(boolean entame_free) {
+        this.entame_free = entame_free;
+    }
+
     // プラン
     private PlanForm plan;
 
@@ -13,8 +28,26 @@ class Request {
     private boolean entame_free;
 
     enum PlanForm {
-        g1, // 1ギガ(スタート)
-        g3, // 3ギガ
-        g30 // 30ギガ
+        g1(Plan._1ギガ), // 1ギガ(スタート)
+        g3(Plan._3ギガ), // 3ギガ
+        g30(Plan._30ギガ); // 30ギガ
+
+        private final Plan plan;
+
+        PlanForm(Plan plan) {
+            this.plan = plan;
+        }
+
+        Plan toPlan() {
+            return this.plan;
+        }
+    }
+
+    public 契約 to契約() {
+        if (entame_free) {
+            return new 契約(plan.toPlan(), オプション.エンタメフリーオプション);
+        } else {
+            return new 契約(plan.toPlan());
+        }
     }
 }
