@@ -1,13 +1,10 @@
-package jp.co.biglobe.workshopmobile.domain.fee;
+package jp.co.biglobe.workshopmobile.domain.option;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-/**
- * 月額料金
- */
 @AllArgsConstructor
-public class MonthlyFee {
+public class エンタメフリーオプション料金 {
     @Getter
     private final int value;
 }
